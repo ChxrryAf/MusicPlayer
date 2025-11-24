@@ -460,25 +460,24 @@
     ]
   },
   "packageFolders": {
-    "/Users/fenjamosebach/.nuget/packages/": {}
+    "/home/zekiz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/SongApi.csproj",
+      "projectUniqueName": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/SongApi.csproj",
       "projectName": "SongApi",
-      "projectPath": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/SongApi.csproj",
-      "packagesPath": "/Users/fenjamosebach/.nuget/packages/",
-      "outputPath": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/obj/",
+      "projectPath": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/SongApi.csproj",
+      "packagesPath": "/home/zekiz/.nuget/packages/",
+      "outputPath": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/fenjamosebach/.nuget/NuGet/NuGet.Config"
+        "/home/zekiz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -491,6 +490,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -525,7 +529,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/nix/store/b16z08mqrmg0v5jk8szdys83kclhp88i-dotnet-sdk-8.0.414/share/dotnet/sdk/8.0.414/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

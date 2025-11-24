@@ -1,39 +1,39 @@
 {
   "Files": [
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track1.mp3",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track1.mp3",
       "PackagePath": "staticwebassets/audio/track1.mp3"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track2.mp3",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track2.mp3",
       "PackagePath": "staticwebassets/audio/track2.mp3"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track3.mp3",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track3.mp3",
       "PackagePath": "staticwebassets/audio/track3.mp3"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track4.mp3",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track4.mp3",
       "PackagePath": "staticwebassets/audio/track4.mp3"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/AVO.jpg",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/AVO.jpg",
       "PackagePath": "staticwebassets/images/AVO.jpg"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/cat2.jpg",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/cat2.jpg",
       "PackagePath": "staticwebassets/images/cat2.jpg"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/cat4.jpg",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/cat4.jpg",
       "PackagePath": "staticwebassets/images/cat4.jpg"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/cat5.jpg",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/cat5.jpg",
       "PackagePath": "staticwebassets/images/cat5.jpg"
     },
     {
-      "Id": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/catja.jpg",
+      "Id": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/catja.jpg",
       "PackagePath": "staticwebassets/images/catja.jpg"
     },
     {

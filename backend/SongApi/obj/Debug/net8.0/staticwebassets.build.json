@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jzeER6HbX5JJAtIX7MPE3LVM+DURHCEnLUNVY84OD78=",
+  "Hash": "TXYVTRmAv9XHBX9+KHaEeyFrSq12KbdVf3SW90xER7I=",
   "Source": "SongApi",
   "BasePath": "_content/SongApi",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SongApi/wwwroot",
       "Source": "SongApi",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track1.mp3",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track1.mp3",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "audio/track1.mp3",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot/audio/track1.mp3"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track2.mp3",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track2.mp3",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "audio/track2.mp3",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot/audio/track2.mp3"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track3.mp3",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track3.mp3",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "audio/track3.mp3",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot/audio/track3.mp3"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/audio/track4.mp3",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/audio/track4.mp3",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "audio/track4.mp3",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot/audio/track4.mp3"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/AVO.jpg",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/AVO.jpg",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "images/AVO.jpg",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot/images/AVO.jpg"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/cat2.jpg",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/cat2.jpg",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "images/cat2.jpg",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot/images/cat2.jpg"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/cat4.jpg",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/cat4.jpg",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "images/cat4.jpg",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot/images/cat4.jpg"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/cat5.jpg",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/cat5.jpg",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "images/cat5.jpg",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot/images/cat5.jpg"
     },
     {
-      "Identity": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/images/catja.jpg",
+      "Identity": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/images/catja.jpg",
       "SourceId": "SongApi",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/wwwroot/",
+      "ContentRoot": "/home/zekiz/Documents/MusicPlayer/backend/SongApi/wwwroot/",
       "BasePath": "_content/SongApi",
       "RelativePath": "images/catja.jpg",
       "AssetKind": "All",
