@@ -20,6 +20,7 @@ interface Song {
   duration: number;
   albumArt: string; // bevorzugt absolute URL vom Backend
   streamUrl?: string; // bevorzugt absolute URL vom Backend
+  liked: boolean;
 }
 
 const API_BASE = "http://localhost:5273";
@@ -39,6 +40,7 @@ const mockSongs: Song[] = [
     duration: 234,
     albumArt: fallbackCover1,
     streamUrl: `${API_BASE}/audio/track1.mp3`,
+    liked: false,
   },
   {
     id: 2,
@@ -47,6 +49,7 @@ const mockSongs: Song[] = [
     duration: 189,
     albumArt: fallbackCover2,
     streamUrl: `${API_BASE}/audio/track2.mp3`,
+    liked: false,
   },
   {
     id: 3,
@@ -55,6 +58,7 @@ const mockSongs: Song[] = [
     duration: 205,
     albumArt: fallbackCover3,
     streamUrl: `${API_BASE}/audio/track3.mp3`,
+    liked: false,
   },
   {
     id: 4,
@@ -63,6 +67,7 @@ const mockSongs: Song[] = [
     duration: 177,
     albumArt: fallbackCover4,
     streamUrl: `${API_BASE}/audio/track4.mp3`,
+    liked: false,
   },
 ];
 
@@ -89,6 +94,12 @@ export function SongPlayer() {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const currentSong = songs[currentSongIndex];
+
+  function likeCurrentSong() {
+    currentSong.liked = !currentSong.liked;
+    setIsLiked(currentSong.liked);
+    console.log(currentSong);
+  }
 
   // API laden (erst /SongApi/songs, sonst /songs)
   useEffect(() => {
@@ -129,6 +140,11 @@ export function SongPlayer() {
       audio.play().catch(() => setIsPlaying(false));
     }
   }, [currentSongIndex, songs]); // volume absichtlich nicht in deps
+
+  useEffect(() => {
+    setIsLiked(currentSong.liked);
+    console.log(currentSong);
+  }, [currentSong]);
 
   // Lautstärke-Änderungen sofort anwenden + speichern
   useEffect(() => {
@@ -237,7 +253,7 @@ export function SongPlayer() {
           variant="ghost"
           size="icon"
           className={`absolute top-3 right-3 rounded-full bg-black/50 backdrop-blur-sm hover:bg-black/70 border-0 transition-all duration-200 ${isLiked ? "text-purple-400" : "text-gray-300"}`}
-          onClick={() => setIsLiked((v) => !v)}
+          onClick={() => likeCurrentSong()}
         >
           <Heart className={`h-4 w-4 ${isLiked ? "fill-current" : ""}`} />
         </Button>
@@ -363,5 +379,6 @@ function normalizeSongs(list: Song[]): Song[] {
     streamUrl: s.streamUrl
       ? ensureAbsolute(s.streamUrl)
       : `${API_BASE}/audio/track${s.id}.mp3`,
+    liked: false,
   }));
 }
