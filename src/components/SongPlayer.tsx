@@ -23,7 +23,8 @@ interface DiscogsSearchItem {
   resourceUrl?: string;
 }
 
-const API_BASE = 'http://localhost:5000';
+// Backend-Basis-URL: per Vite-Env konfigurierbar, sonst lokaler Dev-Port
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5273';
 const VOLUME_KEY = 'player.volume';
 
 // ---- Fallback: sofort sichtbare UI ----
@@ -228,17 +229,27 @@ export function SongPlayer() {
 
       {/* Discogs Search */}
       <div className="mb-6">
-        <form onSubmit={handleSearchSubmit} className="flex gap-2">
-          <input
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Discogs Suche..."
-            className="flex-1 rounded-lg bg-gray-800 text-gray-100 border border-gray-700 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
-          />
-          <Button type="submit" className="bg-purple-600 hover:bg-purple-700" disabled={searchLoading}>
-            <Search className="h-4 w-4 mr-2" />
-            {searchLoading ? 'Suche...' : 'Suchen'}
-          </Button>
+        <form onSubmit={handleSearchSubmit} className="row align-items-center g-2 mx-2">
+          <div className="col-1" />
+          <div className="col-6">
+            <input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Discogs Suche..."
+              className="w-100 rounded-lg bg-gray-800 text-gray-100 border border-white/80 px-3 py-2 text-sm mb-0 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+          <div className="col-4">
+            <Button
+              type="submit"
+              className="w-100 h-10 px-4 bg-purple-600 hover:bg-purple-700 mb-0"
+              disabled={searchLoading}
+            >
+              <Search className="h-4 w-4 mr-2" />
+              {searchLoading ? 'Suche...' : 'Suchen'}
+            </Button>
+          </div>
+          <div className="col-1" />
         </form>
         {searchError && <p className="text-red-400 text-xs mt-2">{searchError}</p>}
         {searchResults.length > 0 && (

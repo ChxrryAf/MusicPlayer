@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SongApi.Data;
 using SongApi.Models;
 using System.Net.Http.Json;
+using System.Data;
 
 namespace SongApi.Controllers
 {
@@ -19,6 +20,30 @@ namespace SongApi.Controllers
             _discogs = discogs;
             _httpClientFactory = httpClientFactory;
             _logger = logger;
+        }
+
+        // GET /SongApi/debug/columns (dev helper)
+        [HttpGet("debug/columns"), ApiExplorerSettings(IgnoreApi = true)]
+        public async Task<IActionResult> GetColumns([FromQuery] string? table = null, CancellationToken ct = default)
+        {
+            try
+            {
+                var tableName = string.IsNullOrWhiteSpace(table) ? "app_releases" : table.Trim();
+                var conn = _discogs.Database.GetDbConnection();
+                await conn.OpenAsync(ct);
+                var schema = conn.GetSchema("Columns", new string?[] { null, conn.Database, tableName, null });
+                var cols = schema.Rows.Cast<DataRow>()
+                    .Select(r => r["COLUMN_NAME"]?.ToString())
+                    .Where(n => !string.IsNullOrWhiteSpace(n))
+                    .ToArray();
+                await conn.CloseAsync();
+                return Ok(new { table = tableName, columns = cols });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to read app_releases columns");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Schema read failed");
+            }
         }
 
         // GET /SongApi/songs?query=term
