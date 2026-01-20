@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Play, Pause, SkipBack, SkipForward, Volume2, Heart, Shuffle, Repeat } from 'lucide-react';
+import { useState, useEffect, useRef, FormEvent } from 'react';
+import { Play, Pause, SkipBack, SkipForward, Volume2, Heart, Shuffle, Repeat, Search } from 'lucide-react';
 import { Button } from './ui/button';
 import { Slider } from './ui/slider';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -13,14 +13,24 @@ interface Song {
   streamUrl?: string; // bevorzugt absolute URL vom Backend
 }
 
-const API_BASE = 'http://localhost:5273';
+interface DiscogsSearchItem {
+  discogsId: string;
+  title: string;
+  artist: string;
+  year?: number;
+  country?: string;
+  coverUrl: string;
+  resourceUrl?: string;
+}
+
+const API_BASE = 'http://localhost:5000';
 const VOLUME_KEY = 'player.volume';
 
 // ---- Fallback: sofort sichtbare UI ----
 const fallbackCover1 = new URL('../assets/catja.jpg', import.meta.url).href;
 const fallbackCover2 = new URL('../assets/cat2.jpg', import.meta.url).href;
 const fallbackCover3 = new URL('../assets/AVO.jpg', import.meta.url).href;
-const fallbackCover4 = new URL('../assets/cat5.jpg', import.meta.url).href;
+const fallbackCover4 = fallbackCover2;
 
 const mockSongs: Song[] = [
   { id: 1, title: 'Midnight Dreams',  artist: 'Luna & Co',       duration: 234, albumArt: fallbackCover1, streamUrl: `${API_BASE}/audio/track1.mp3` },
@@ -50,6 +60,10 @@ export function SongPlayer() {
   const [isLiked, setIsLiked] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
   const [isRepeating, setIsRepeating] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<DiscogsSearchItem[]>([]);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const currentSong = songs[currentSongIndex];
@@ -166,6 +180,42 @@ export function SongPlayer() {
     }
   };
 
+  const runDiscogsSearch = async (term: string) => {
+    const q = term.trim();
+    if (!q) {
+      setSearchResults([]);
+      setSearchError(null);
+      return;
+    }
+
+    setSearchLoading(true);
+    setSearchError(null);
+    try {
+      const res = await fetch(`${API_BASE}/SongApi/discogs/search?query=${encodeURIComponent(q)}&limit=10`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data: DiscogsSearchItem[] = await res.json();
+      setSearchResults(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error(err);
+      setSearchError('Discogs-Suche fehlgeschlagen. Bitte spaeter erneut versuchen.');
+    } finally {
+      setSearchLoading(false);
+    }
+  };
+
+  const handleSearchSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    runDiscogsSearch(searchTerm);
+  };
+
+  const useDiscogsResult = (item: DiscogsSearchItem) => {
+    const mapped = mapDiscogsToSong(item);
+    setSongs((prev) => [mapped, ...prev]);
+    setCurrentSongIndex(0);
+    setCurrentTime(0);
+    setIsPlaying(true);
+  };
+
   return (
     <div className="w-full max-w-sm mx-auto bg-gray-900 rounded-2xl shadow-2xl p-8 border border-gray-800 backdrop-blur-sm">
       {/* Hidden audio */}
@@ -175,6 +225,51 @@ export function SongPlayer() {
         onLoadedMetadata={onLoadedMetadata}
         onEnded={onEnded}
       />
+
+      {/* Discogs Search */}
+      <div className="mb-6">
+        <form onSubmit={handleSearchSubmit} className="flex gap-2">
+          <input
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Discogs Suche..."
+            className="flex-1 rounded-lg bg-gray-800 text-gray-100 border border-gray-700 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          />
+          <Button type="submit" className="bg-purple-600 hover:bg-purple-700" disabled={searchLoading}>
+            <Search className="h-4 w-4 mr-2" />
+            {searchLoading ? 'Suche...' : 'Suchen'}
+          </Button>
+        </form>
+        {searchError && <p className="text-red-400 text-xs mt-2">{searchError}</p>}
+        {searchResults.length > 0 && (
+          <div className="mt-3 space-y-2 max-h-44 overflow-y-auto pr-1">
+            {searchResults.map((item) => (
+              <button
+                key={`${item.discogsId}-${item.title}`}
+                onClick={() => useDiscogsResult(item)}
+                className="w-full text-left flex items-center gap-3 rounded-lg border border-gray-800 bg-gray-900 hover:bg-gray-800 transition-colors px-3 py-2"
+              >
+                <div className="w-12 h-12 rounded-md overflow-hidden bg-gray-800 flex-shrink-0">
+                  <ImageWithFallback
+                    src={ensureAbsolute(item.coverUrl)}
+                    alt={`${item.title} cover`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-white truncate">{item.title}</p>
+                  <p className="text-xs text-gray-400 truncate">
+                    {item.artist}
+                    {item.year ? ` • ${item.year}` : ''}
+                    {item.country ? ` • ${item.country}` : ''}
+                  </p>
+                </div>
+                <span className="text-[10px] uppercase tracking-wide text-purple-300">Add</span>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Album Art */}
       <div className="relative mb-6">
@@ -288,6 +383,19 @@ function ensureAbsolute(url: string | undefined): string {
   if (!url) return '';
   if (url.startsWith('http://') || url.startsWith('https://')) return url;
   return `${API_BASE}${url.startsWith('/') ? '' : '/'}${url}`;
+}
+
+function mapDiscogsToSong(item: DiscogsSearchItem): Song {
+  const parsedId = Number.parseInt(item.discogsId, 10);
+  const safeId = Number.isFinite(parsedId) ? parsedId : Date.now();
+  return {
+    id: safeId,
+    title: item.title || 'Unbenannt',
+    artist: item.artist || 'Unbekannt',
+    duration: 0,
+    albumArt: ensureAbsolute(item.coverUrl) || item.coverUrl,
+    streamUrl: `${API_BASE}/audio/track1.mp3`,
+  };
 }
 
 function normalizeSongs(list: Song[]): Song[] {

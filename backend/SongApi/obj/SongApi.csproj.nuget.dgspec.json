@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/SongApi.csproj": {}
+    "C:\\Users\\Dell\\Desktop\\SchulProjekt\\githubDesktop\\MusicPlayer\\backend\\SongApi\\SongApi.csproj": {}
   },
   "projects": {
-    "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/SongApi.csproj": {
+    "C:\\Users\\Dell\\Desktop\\SchulProjekt\\githubDesktop\\MusicPlayer\\backend\\SongApi\\SongApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/SongApi.csproj",
+        "projectUniqueName": "C:\\Users\\Dell\\Desktop\\SchulProjekt\\githubDesktop\\MusicPlayer\\backend\\SongApi\\SongApi.csproj",
         "projectName": "SongApi",
-        "projectPath": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/SongApi.csproj",
-        "packagesPath": "/Users/fenjamosebach/.nuget/packages/",
-        "outputPath": "/Users/fenjamosebach/Downloads/cat (Copy)-2/backend/SongApi/obj/",
+        "projectPath": "C:\\Users\\Dell\\Desktop\\SchulProjekt\\githubDesktop\\MusicPlayer\\backend\\SongApi\\SongApi.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dell\\Desktop\\SchulProjekt\\githubDesktop\\MusicPlayer\\backend\\SongApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/fenjamosebach/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,7 +39,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -42,6 +54,16 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -67,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
